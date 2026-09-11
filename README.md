@@ -128,9 +128,40 @@ Quick 1-click login buttons are provided on the Login page:
    ```
    *The frontend application will run at `http://localhost:5173`.*
 
+   ---
+
+   ## 5. Deploy on Render and Vercel
+
+   ### Backend on Render
+
+   This repository includes `render.yaml`. Create a new Render Blueprint from the repository; it will use `backend` as the service root and start FastAPI with Render's `$PORT`.
+
+   Set these environment variables on the Render web service:
+
+   ```text
+   SECRET_KEY=<long-random-production-secret>
+   DATABASE_URL=<Render PostgreSQL connection string>
+   FRONTEND_URL=https://<your-vercel-project>.vercel.app
+   FRONTEND_URLS=https://<your-vercel-project>.vercel.app
+   ```
+
+   Use the Render service URL to verify the backend at `/api/health`.
+
+   ### Frontend on Vercel
+
+   Create a Vercel project with `frontend` as the Root Directory. Vercel detects the Vite build automatically; `frontend/vercel.json` keeps client-side routes working after refresh.
+
+   Set this Vercel environment variable for Production (and Preview if needed):
+
+   ```text
+   VITE_API_URL=https://<your-render-service>.onrender.com/api
+   ```
+
+   Redeploy the frontend after setting the variable. The browser must call the Render URL, not `localhost`.
+
 ---
 
-## 5. Running Automated Backend Tests
+   ## 6. Running Automated Backend Tests
 
 Run the Pytest suite covering authentication, RBAC, single predictions, batch predictions, analytics, and admin endpoints:
 
@@ -151,7 +182,7 @@ All 16 tests verify:
 
 ---
 
-## 6. API Endpoints Reference
+## 7. API Endpoints Reference
 
 ### Authentication
 - `POST /api/auth/register` - Create account (User or Analyst)
@@ -186,7 +217,7 @@ All 16 tests verify:
 
 ---
 
-## 7. Machine Learning Model Details
+## 8. Machine Learning Model Details
 
 - **Algorithm:** Random Forest Classifier with Balanced Stratified Subsampling
 - **Input Features (12):**

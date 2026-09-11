@@ -27,8 +27,10 @@ origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:3000",
-    settings.FRONTEND_URL
+    settings.FRONTEND_URL,
+    *[origin.strip() for origin in settings.FRONTEND_URLS.split(",") if origin.strip()]
 ]
+origins = list(dict.fromkeys(origins))
 
 app.add_middleware(
     CORSMiddleware,

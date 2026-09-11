@@ -38,6 +38,7 @@ class Settings(BaseSettings):
     
     # CORS
     FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
+    FRONTEND_URLS: str = os.getenv("FRONTEND_URLS", "")
     
     # Risk Score Thresholds (Configurable)
     # 0 - 30: LOW, 31 - 60: MEDIUM, 61 - 85: HIGH, 86 - 100: CRITICAL
