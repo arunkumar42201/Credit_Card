@@ -30,7 +30,7 @@ origins = [
     settings.FRONTEND_URL,
     *[origin.strip() for origin in settings.FRONTEND_URLS.split(",") if origin.strip()]
 ]
-origins = list(dict.fromkeys(origins))
+origins = list(dict.fromkeys(origin.rstrip("/") for origin in origins if origin))
 
 app.add_middleware(
     CORSMiddleware,
