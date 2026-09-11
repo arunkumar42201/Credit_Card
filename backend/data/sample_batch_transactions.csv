@@ -1,0 +1,11 @@
+amount,merchant_category,transaction_time_hour,transaction_frequency_24h,location_risk_score,device_risk_score,distance_from_prev_km,prev_amount_ratio,account_age_days,failed_transactions_24h,is_international,is_online
+42.50,grocery,11,1,0.05,0.05,2.1,0.9,720,0,0,1
+15.00,dining,13,2,0.10,0.08,4.5,0.8,500,0,0,0
+3400.00,electronics,3,11,0.92,0.85,1850.0,8.5,20,3,1,1
+88.20,clothing,16,1,0.12,0.10,12.0,1.1,430,0,0,1
+2800.00,travel,4,8,0.88,0.90,3200.0,7.2,15,2,1,1
+22.40,gas_transport,8,1,0.04,0.05,5.0,0.95,950,0,0,0
+1950.00,retail,2,9,0.85,0.82,1450.0,6.0,45,2,1,1
+65.00,entertainment,20,2,0.15,0.12,8.0,1.0,300,0,0,1
+120.00,health_beauty,15,1,0.08,0.05,6.2,1.05,620,0,0,0
+4200.00,electronics,2,14,0.95,0.94,2900.0,11.5,10,4,1,1
